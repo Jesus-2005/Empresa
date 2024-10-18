@@ -12,9 +12,9 @@ import com.aprendec.model.Empleado;
 
  
 public class ProductoDAO {
- private Connection connection;
- private PreparedStatement statement;
- private boolean estadoOperacion;
+ private static Connection connection;
+ private static PreparedStatement statement;
+ private static boolean estadoOperacion;
  
  
  // obtener lista de productos
@@ -49,21 +49,20 @@ public class ProductoDAO {
  }
  
  
- public Integer obtenerSueldo(int dni) throws SQLException {
+ public String obtenerSueldo(String dni) throws SQLException {
 	  ResultSet resultSet = null;
 	 
 	  String sql = null;
 	  estadoOperacion = false;
 	  connection = obtenerConexion();
-	  int sueldo = 0;
+	  String sueldo =null;
 	  try {
-	   sql = "SELECT sueldo FROM nomina WHERE id =?";
-	   statement.setInt(1, dni);
+	   sql = "SELECT sueldo FROM nomina WHERE dni ='"+dni+"'";
 	   statement = connection.prepareStatement(sql);
 	   resultSet = statement.executeQuery(sql);
 	   while (resultSet.next()) {
 	  
-		sueldo = resultSet.getInt("sueldo");
+		sueldo = resultSet.getString(1);
 	   }
 	 
 	  } catch (SQLException e) {
@@ -74,7 +73,7 @@ public class ProductoDAO {
 	 }
  
  // obtener conexion pool
- private Connection obtenerConexion() throws SQLException {
+ private static Connection obtenerConexion() throws SQLException {
   return Conexion.getConnection();
  }
  

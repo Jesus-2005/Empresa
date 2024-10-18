@@ -14,10 +14,10 @@
    <td>Dni</td>
    <td>Salario</td>  
   </tr>
-  <c:forEach var="Empleado" items="${lista}">
+  <c:forEach var="Sueldo" items="${sueldo}">
   <tr>
-    <td><c:out value="${ Empleado.dni}"></c:out></td>
-    <td><c:out value="${ Empleado.sexo}"></c:out></td>
+    <td><c:out value="${ Sueldo.dni}"></c:out></td>
+    <td><c:out value="${ Sueldo.sexo}"></c:out></td>
   </tr>
   </c:forEach>
  </table>

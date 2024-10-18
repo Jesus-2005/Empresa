@@ -8,7 +8,7 @@
 </head>
 <body>
  <h1>Listar Sueldo</h1>
- <form action="sueldo" method="post">
+ <form action="empleados" method="post">
   <input type="hidden" name="opcion" value="buscar">
   <table border="1">
    <tr>
