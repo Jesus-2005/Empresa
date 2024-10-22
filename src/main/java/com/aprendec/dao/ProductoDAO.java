@@ -72,6 +72,36 @@ public class ProductoDAO {
 	  return sueldo;
 	 }
  
+ public List<Empleado> obtenerEmpleado(String valor) throws SQLException {
+	  ResultSet resultSet = null;
+	  List<Empleado> listaEmpleados = new ArrayList<>();
+	 
+	  String sql = null;
+	  estadoOperacion = false;
+	  connection = obtenerConexion();
+	 
+	  try {
+	   sql = "SELECT * FROM empleado where Nombre = '"+valor+"' or  dni = '"+valor+"' or sexo = '"+valor+"' or cartegoria = "+valor+" or anyos = "+valor+" or";
+	   statement = connection.prepareStatement(sql);
+	   resultSet = statement.executeQuery(sql);
+	   while (resultSet.next()) {
+		Empleado p;
+	    String nombre = resultSet.getString("Nombre");
+		String dni = resultSet.getString("Dni");
+		char sexo = resultSet.getString("Sexo").charAt(0);
+		int categoria = resultSet.getInt("Categoria");
+		int anyo = resultSet.getInt("Anyos");
+		p = new Empleado(nombre, dni, sexo, categoria, anyo);
+	    listaEmpleados.add(p);
+	   }
+	 
+	  } catch (SQLException e) {
+	   e.printStackTrace();
+	  }
+	 
+	  return listaEmpleados;
+	 }
+ 
  // obtener conexion pool
  private static Connection obtenerConexion() throws SQLException {
   return Conexion.getConnection();

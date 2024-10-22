@@ -92,6 +92,7 @@ public class ProductoController extends HttpServlet {
 			try {
 				String sueldo = productoDAO.obtenerSueldo(empleado.getDni());
 				System.out.println(sueldo);
+				request.setAttribute("dni", empleado.getDni());
 				request.setAttribute("sueldo", sueldo);
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/listarSueldo.jsp");
 				requestDispatcher.forward(request, response);
@@ -100,6 +101,8 @@ public class ProductoController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		} else if(opcion.equals("buscarEmpleado")) {
+			
 		}
 
 // doGet(request, response);

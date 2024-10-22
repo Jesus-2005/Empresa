@@ -15,8 +15,8 @@
    <td>Salario</td>  
   </tr>
   <tr>
-    <c><td>${ Sueldo.dni}</td></c>
-    <c><td>${ Sueldo.sexo}</td></c>
+    <c><td>${ dni}</td></c>
+    <c><td>${ sueldo}</td></c>
   </tr>
  </table>
 </body>

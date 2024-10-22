@@ -11,10 +11,13 @@
   <h1>Menu de Opciones</h1>
   <table >
   <tr>
-    <td><a href="empleados?opcion=listarSueldo"> Ver sueldo</a></td>
+    <td><a href="empleados?opcion=listarSueldo">Ver sueldo</a></td>
   </tr>
   <tr>
-    <td><a href="empleados?opcion=listar"> Ver Empleados</a></td>
+    <td><a href="empleados?opcion=listar">Ver Empleados</a></td>
+  </tr>
+  <tr>
+    <td><a href="empleados?opcion=modificar">Modificar Empleados</a></td>
   </tr>
 </table>
 </body>
