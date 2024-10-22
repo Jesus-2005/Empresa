@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.aprendec.dao.ProductoDAO;
 import com.aprendec.model.Empleado;
-import com.aprendec.model.Producto;
+
 
 /**
  * Servlet implementation class ProductoController
@@ -76,6 +76,24 @@ public class ProductoController extends HttpServlet {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/buscarDni.jsp");
 			requestDispatcher.forward(request, response);
 
+		}else if (opcion.equals("modificarEmpleados")) {
+			ProductoDAO productoDAO = new ProductoDAO();
+			List<Empleado> lista = new ArrayList<>();
+			String campo = request.getParameter("campo");
+			try {
+				lista = productoDAO.obtenerEmpleado(campo);
+				for (Empleado empleado : lista) {
+					System.out.println(empleado);
+				}
+
+				request.setAttribute("listar", lista);
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/buscarEmpleados.jsp");
+				requestDispatcher.forward(request, response);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -102,7 +120,22 @@ public class ProductoController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(opcion.equals("buscarEmpleado")) {
-			
+			List<Empleado> lista = new ArrayList<>();
+			ProductoDAO productoDAO = new ProductoDAO();
+			String campo = request.getParameter("campo");
+			try {
+				lista = productoDAO.obtenerEmpleado(campo);
+				for (Empleado empleado : lista) {
+					System.out.println(empleado);
+				}
+				request.setAttribute("listar", lista);
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/modificarEmpleados.jsp");
+				requestDispatcher.forward(request, response);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 // doGet(request, response);

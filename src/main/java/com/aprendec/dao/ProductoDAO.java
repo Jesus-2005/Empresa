@@ -79,9 +79,10 @@ public class ProductoDAO {
 	  String sql = null;
 	  estadoOperacion = false;
 	  connection = obtenerConexion();
-	 
+	  sql = "SELECT * FROM empleado where Nombre ='"+valor+"' or Dni ='"+valor+"' or Sexo = '"+valor+"' or categoria = "+valor+" or anyos ="+valor+";";
 	  try {
-	   sql = "SELECT * FROM empleado where Nombre = '"+valor+"' or  dni = '"+valor+"' or sexo = '"+valor+"' or cartegoria = "+valor+" or anyos = "+valor+" or";
+		  
+	   
 	   statement = connection.prepareStatement(sql);
 	   resultSet = statement.executeQuery(sql);
 	   while (resultSet.next()) {
