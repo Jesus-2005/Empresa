@@ -77,23 +77,23 @@ public class ProductoController extends HttpServlet {
 			requestDispatcher.forward(request, response);
 
 		}else if (opcion.equals("modificarEmpleados")) {
-			ProductoDAO productoDAO = new ProductoDAO();
-			List<Empleado> lista = new ArrayList<>();
-			String campo = request.getParameter("campo");
-			try {
-				lista = productoDAO.obtenerEmpleado(campo);
-				for (Empleado empleado : lista) {
-					System.out.println(empleado);
-				}
-
-				request.setAttribute("listar", lista);
+//			ProductoDAO productoDAO = new ProductoDAO();
+//			List<Empleado> lista = new ArrayList<>();
+//			String campo = request.getParameter("campo");
+//			try {
+//				lista = productoDAO.obtenerEmpleado(campo);
+//				for (Empleado empleado : lista) {
+//					System.out.println(empleado);
+//				}
+//
+//				request.setAttribute("listar", lista);
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/buscarEmpleados.jsp");
 				requestDispatcher.forward(request, response);
 
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}
 	}
 
