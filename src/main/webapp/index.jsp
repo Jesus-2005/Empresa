@@ -9,15 +9,15 @@
 </head>
 <body>
   <h1>Menu de Opciones</h1>
-  <table >
+  <table class="menu" >
   <tr>
-    <td><a href="empleados?opcion=listarSueldo">Ver sueldo</a></td>
+    <td class="block"><a href="empleados?opcion=listarSueldo">Ver sueldo</a></td>
   </tr>
   <tr>
-    <td><a href="empleados?opcion=listar">Ver Empleados</a></td>
+    <td class="block"><a href="empleados?opcion=listar">Ver Empleados</a></td>
   </tr>
   <tr>
-    <td><a href="empleados?opcion=modificarEmpleados">Modificar Empleados</a></td>
+    <td class="block"><a href="empleados?opcion=modificarEmpleados">Modificar Empleados</a></td>
   </tr>
 </table>
 </body>

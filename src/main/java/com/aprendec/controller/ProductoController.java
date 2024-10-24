@@ -17,6 +17,7 @@ import com.aprendec.dao.ProductoDAO;
 import com.aprendec.model.Empleado;
 
 
+
 /**
  * Servlet implementation class ProductoController
  */
@@ -94,7 +95,24 @@ public class ProductoController extends HttpServlet {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
 //			}
-		}
+		} else if (opcion.equals("meditar")) {
+			   String dni = request.getParameter("dni");
+			   System.out.println("Editar dni: " + dni);
+			   ProductoDAO productoDAO = new ProductoDAO();
+			   Empleado empleado = new Empleado();
+			   try {
+				empleado = productoDAO.obtenerEmpleadoEditar(dni);
+			    System.out.println(empleado);
+			    request.setAttribute("empleado", empleado);
+			    RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/editarEmpleados.jsp");
+			    requestDispatcher.forward(request, response);
+			 
+			   } catch (SQLException e) {
+			    // TODO Auto-generated catch block
+			    e.printStackTrace();
+			   }
+			 
+			  }
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -141,44 +159,7 @@ public class ProductoController extends HttpServlet {
 // doGet(request, response);
 	}
 
-// else if (opcion.equals("meditar")) {
-//   int id = Integer.parseInt(request.getParameter("id"));
-//   System.out.println("Editar id: " + id);
-//   ProductoDAO productoDAO = new ProductoDAO();
-//   Producto p = new Producto();
-//   try {
-//    p = productoDAO.obtenerProducto(id);
-//    System.out.println(p);
-//    request.setAttribute("producto", p);
-//    RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/editar.jsp");
-//    requestDispatcher.forward(request, response);
-// 
-//   } catch (SQLException e) {
-//    // TODO Auto-generated catch block
-//    e.printStackTrace();
-//   }
-// 
-//  } else if (opcion.equals("eliminar")) {
-//   ProductoDAO productoDAO = new ProductoDAO();
-//   int id = Integer.parseInt(request.getParameter("id"));
-//   try {
-//    productoDAO.eliminar(id);
-//    System.out.println("Registro eliminado satisfactoriamente...");
-//    RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
-//    requestDispatcher.forward(request, response);
-//   } catch (SQLException e) {
-//    // TODO Auto-generated catch block
-//    e.printStackTrace();
-//   }
-// 
-//  }
-//   response.getWriter().append("Served at: ").append(request.getContextPath());
-// }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 // protected void doPost(HttpServletRequest request, HttpServletResponse response)
 //   throws ServletException, IOException {
 //  // TODO Auto-generated method stub

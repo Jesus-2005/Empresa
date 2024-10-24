@@ -9,10 +9,10 @@
 </head>
 <body>
  <h1>Editar Producto</h1>
- <form action="empleados" method="post">
-  <c:set var="empleado" value="${epleado}"></c:set>
+ <form action="empleado" method="post">
+  <c:set var="empleado" value="${empleado}"></c:set>
   <input type="hidden" name="opcion" value="editar">
-  <input type="hidden" name="id" value="${empleado.dni}">
+  <input type="hidden" name="dni" value="${empleado.dni}">
   <table border="1">
    <tr>
     <td>Nombre:</td>
@@ -20,19 +20,19 @@
    </tr>
    <tr>
     <td>Dni:</td>
-    <td><input type="text" name="cantidad" size="50" value="${empleado.dni}"></td>
+    <td><input type="text" name="dni" size="50" value="${empleado.dni}"></td>
    </tr>
    <tr>
     <td>Sexo:</td>
-    <td><input type="text" name="precio" size="50" value="${empleado.sexo}"></td>
+    <td><input type="text" name="sexo" size="50" value="${empleado.sexo}"></td>
    </tr>
    <tr>
     <td>Categoria:</td>
-    <td><input type="text" name="precio" size="50" value="${empleado.categoria}"></td>
+    <td><input type="text" name="categoria" size="50" value="${empleado.categoria}"></td>
    </tr>
    <tr>
     <td>Anyos:</td>
-    <td><input type="text" name="precio" size="50" value="${empleado.anyos}"></td>
+    <td><input type="text" name="anyos" size="50" value="${empleado.anyos}"></td>
    </tr>
   </table>
   <input type="submit" value="Guardar">

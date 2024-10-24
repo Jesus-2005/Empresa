@@ -6,10 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listar empleados</title>
+<link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
  <h1>Listar Empleados</h1>
- <table border="1">
+ <table border=1>
   <tr>
    <td>Nombre</td>
    <td>Dni</td>
