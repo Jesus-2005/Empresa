@@ -9,10 +9,10 @@
 </head>
 <body>
  <h1>Editar Producto</h1>
- <form action="empleado" method="post">
+ <form action="empleados" method="post">
   <c:set var="empleado" value="${empleado}"></c:set>
   <input type="hidden" name="opcion" value="editar">
-  <input type="hidden" name="dni" value="${empleado.dni}">
+  <input type="hidden" name="dniOriginal" value="${empleado.dni}">
   <table border="1">
    <tr>
     <td>Nombre:</td>
