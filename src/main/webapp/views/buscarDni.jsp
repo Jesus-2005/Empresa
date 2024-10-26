@@ -5,18 +5,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listar Sueldo</title>
+<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
- <h1>Listar Sueldo</h1>
+<div class="header-container">
+  <h1>Listar Sueldo</h1>
+ <a href="empleados?opcion=volver">
+        <button class="btn-custom" type="button">Volver</button>
+    </a>
+</div>
  <form action="empleados" method="post">
   <input type="hidden" name="opcion" value="buscar">
-  <table border="1">
+  <table class="table table-info table-striped-columns" border="1">
    <tr>
-    <td>DNI:</td>
+    <th>DNI:</th>
     <td><input type="text" name="dni" size="50"></td>
    </tr>
   </table>
-  <input type="submit" value="Buscar">
+  <input type="submit" class="btn-custom" value="Buscar">
  </form>
 </body>
 </html>

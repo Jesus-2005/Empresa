@@ -7,16 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listar empleados</title>
 <link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+<div class="header-container">
  <h1>Listar Empleados</h1>
- <table border=1>
+ <a href="empleados?opcion=volver">
+        <button class="btn-custom" type="button">Volver</button>
+    </a>
+</div>
+ <table class="table table-info table-striped-columns" border=1>
   <tr>
-   <td>Nombre</td>
-   <td>Dni</td>
-   <td>Sexo</td>  
-   <td>Categoria</td>
-   <td>Anyos</td>
+   <th>Nombre</th>
+   <th>Dni</th>
+   <th>Sexo</th>  
+   <th>Categoria</th>
+   <th>Anyos</th>
   </tr>
   <c:forEach var="Empleado" items="${lista}">
   <tr>

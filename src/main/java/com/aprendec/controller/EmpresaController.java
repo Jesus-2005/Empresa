@@ -96,6 +96,9 @@ public class EmpresaController extends HttpServlet {
 				e.printStackTrace();
 			}
 
+		} else if(opcion.equals("volver")) {
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
+			requestDispatcher.forward(request, response);
 		}
 	}
 

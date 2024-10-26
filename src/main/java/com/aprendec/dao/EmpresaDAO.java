@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.aprendec.conexion.Conexion;
 import com.aprendec.model.Empleado;
+import com.aprendec.model.Nomina;
 
 
 public class EmpresaDAO {
@@ -160,19 +161,33 @@ public class EmpresaDAO {
 	
 	public boolean editar(Empleado empleado , String dniOriginal) throws SQLException {
 		  String sql = null;
+		  String sql2 = null;
 		  estadoOperacion = false;
 		  connection = obtenerConexion();
+		  Nomina n = new Nomina();
+		 
+		  
+		  
 		  try {
 		   connection.setAutoCommit(false);
 		   sql = "UPDATE empleado SET nombre=?, dni=?, sexo=?, categoria=?, anyos=? WHERE dni=?";
+		   sql2 = "UPDATE nomina SET dni=? ,sueldo=? WHERE dni=?";
+		   
 		   statement = connection.prepareStatement(sql);
-		 
 		   statement.setString(1, empleado.getNombre());
 		   statement.setString(2, empleado.getDni());
 		   statement.setString(3, String.valueOf(empleado.getSexo()));
 		   statement.setInt(4, empleado.getCategoria());
 		   statement.setInt(5, empleado.getAnyos());
 		   statement.setString(6, dniOriginal);
+		 
+		   estadoOperacion = statement.executeUpdate() > 0;
+		   
+		   
+		   statement = connection.prepareStatement(sql2);
+		   statement.setString(1, empleado.getDni());
+		   statement.setInt(2,n.sueldo(empleado));
+		   statement.setString(3, dniOriginal);
 		 
 		   estadoOperacion = statement.executeUpdate() > 0;
 		   connection.commit();

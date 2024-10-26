@@ -6,16 +6,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Modifica Empleados</title>
+<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>Modifica Empleados</h1>
-	<table border="1">
+
+	<div class="header-container">
+		<h1>Modifica Empleados</h1>
+		<a href="empleados?opcion=volver">
+			<button class="btn-custom" type="button">Volver</button>
+		</a>
+	</div>
+	<table class="table table-info table-striped-columns" border="1">
 		<tr>
-			<td>Nombre</td>
-			<td>Dni</td>
-			<td>Sexo</td>
-			<td>Categoria</td>
-			<td>Anyos</td>
+			<th>Nombre</th>
+			<th>Dni</th>
+			<th>Sexo</th>
+			<th>Categoria</th>
+			<th>Anyos</th>
 		</tr>
 		<c:forEach var="EmpleadoModificar" items="${listar}">
 			<tr>
@@ -24,11 +32,9 @@
 				<td><c:out value="${ EmpleadoModificar.sexo}"></c:out></td>
 				<td><c:out value="${ EmpleadoModificar.categoria}"></c:out></td>
 				<td><c:out value="${ EmpleadoModificar.anyos}"></c:out></td>
-				<td>
-				<a
+				<td><a
 					href="empleados?opcion=meditar&dni=<c:out value="${  EmpleadoModificar.dni}"></c:out>">
-						Editar
-				</a></td>
+						<button class="btn-custom" type="button">Editar</button> </a></td>
 			</tr>
 		</c:forEach>
 	</table>

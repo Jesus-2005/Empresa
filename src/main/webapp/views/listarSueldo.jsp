@@ -6,13 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listar empleados</title>
+<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
- <h1>Listar Empleados</h1>
- <table border="1">
+<div class="header-container">
+ <h1>Listar Sueldo</h1>
+ <a href="empleados?opcion=volver">
+        <button class="btn-custom" type="button">Volver</button>
+    </a>
+</div>
+
+ <table class="table table-info table-striped-columns" border="1">
   <tr>
-   <td>Dni</td>
-   <td>Salario</td>  
+   <th>Dni</th>
+   <th>Salario</th>  
   </tr>
   <tr>
     <c><td>${ dni}</td></c>
