@@ -70,9 +70,13 @@ public class EmpresaController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
 			request.setAttribute("sueldo", sueldo);
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/buscarDni.jsp");
 			requestDispatcher.forward(request, response);
+			
+			
 
 		} else if (opcion.equals("modificarEmpleados")) {
 
@@ -117,6 +121,11 @@ public class EmpresaController extends HttpServlet {
 				System.out.println(sueldo);
 				request.setAttribute("dni", empleado.getDni());
 				request.setAttribute("sueldo", sueldo);
+				
+				if(sueldo == null) {
+					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/Error.jsp");
+					requestDispatcher.forward(request, response);
+				}
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/listarSueldo.jsp");
 				requestDispatcher.forward(request, response);
 
@@ -134,6 +143,10 @@ public class EmpresaController extends HttpServlet {
 					empleado.imprime();
 				}
 				request.setAttribute("listar", lista);
+				if(lista.isEmpty()) {
+					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/Error.jsp");
+					requestDispatcher.forward(request, response);
+				}
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/modificarEmpleados.jsp");
 				requestDispatcher.forward(request, response);
 
