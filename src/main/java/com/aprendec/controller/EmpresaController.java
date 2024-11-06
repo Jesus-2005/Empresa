@@ -21,12 +21,14 @@ import com.aprendec.model.Empleado;
 @WebServlet(description = "administra peticiones para la tabla productos", urlPatterns = { "/empleados" })
 public class EmpresaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private EmpresaDAO empresaDAO;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public EmpresaController() {
 		super();
+		this.empresaDAO = new EmpresaDAO();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -42,7 +44,7 @@ public class EmpresaController extends HttpServlet {
 
 		if (opcion.equals("listar")) {
 
-			EmpresaDAO empresaDAO = new EmpresaDAO();
+			
 			List<Empleado> lista = new ArrayList<>();
 			try {
 				lista = empresaDAO.obtenerEmpleado();

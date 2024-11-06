@@ -7,16 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aprendec.conexion.Conexion;
+import com.aprendec.conexion.MDBConexion;
 import com.aprendec.model.Empleado;
-import com.aprendec.model.Nomina;
+import com.aprendec.model.NominaService;
 
-public class EmpresaDAO {
+public class EmpresaDAO implements EmpleadoDAO{
 	private static Connection connection;
 	private static PreparedStatement statement;
 	private static boolean estadoOperacion;
+	
+	
 
-	// obtener lista de productos
+	@Override
 	public List<Empleado> obtenerEmpleado() throws SQLException {
 		ResultSet resultSet = null;
 		List<Empleado> listaEmpleados = new ArrayList<>();
@@ -47,6 +49,7 @@ public class EmpresaDAO {
 		return listaEmpleados;
 	}
 
+	@Override
 	public String obtenerSueldo(String dni) throws SQLException {
 		ResultSet resultSet = null;
 
@@ -72,6 +75,7 @@ public class EmpresaDAO {
 		return sueldo;
 	}
 
+	@Override
 	public Empleado obtenerEmpleadoEditar(String dni) throws SQLException {
 		ResultSet resultSet = null;
 		Empleado empleado = new Empleado();
@@ -102,6 +106,7 @@ public class EmpresaDAO {
 		return empleado;
 	}
 
+	@Override
 	public List<Empleado> obtenerEmpleado(String valor) throws SQLException {
 		ResultSet resultSet = null;
 		List<Empleado> listaEmpleados = new ArrayList<>();
@@ -148,12 +153,13 @@ public class EmpresaDAO {
 		return listaEmpleados;
 	}
 
+	@Override
 	public boolean editar(Empleado empleado, String dniOriginal) throws SQLException {
 		String sql = null;
 		String sql2 = null;
 		estadoOperacion = false;
 		connection = obtenerConexion();
-		Nomina n = new Nomina();
+		NominaService n = new NominaService();
 
 		try {
 			connection.setAutoCommit(false);
@@ -190,7 +196,7 @@ public class EmpresaDAO {
 
 	// obtener conexion pool
 	private static Connection obtenerConexion() throws SQLException {
-		return Conexion.getConnection();
+		return MDBConexion.getConnection();
 	}
 
 }
